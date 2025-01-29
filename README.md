@@ -1,6 +1,6 @@
 # AI Agent for Snake Game
 Deep Q Learning Algorithm to beat the Snake Game
-![Snake Game AI Screenshot](assets/screenshot.png)
+![Snake Game AI Screenshot]([assets/screenshot.png](https://github.com/danielluzzatto/AI-Agent-for-Snake-Game/blob/main/assets/Screenshot%202025-01-29%20024717.png))
 This project implements a Snake Game with an AI agent that can be trained and tested to play the game effectively. The AI uses reinforcement learning to learn how to maximize its score by navigating the environment and collecting food without colliding with itself or the walls.
 # Features:
 - Train Mode: Train the AI to play the Snake Game.
