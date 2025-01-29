@@ -24,7 +24,7 @@ Clone this repository
 
 ```bash
    python agent.py
-```
+   ```
 
 Input train to start training. This will initialize the training process, saving the best model as model.pth in the models/ folder. For testing, type 'test'.
 
