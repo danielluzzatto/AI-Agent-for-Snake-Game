@@ -15,11 +15,11 @@ Ensure you have Python installed on your system. You can install the required li
    pip install -r requirements.txt
    ```
 # Installation
-Clone this repository
-   ```bash
-     git clone https://github.com/your-username/snake-game-ai.git
-     cd snake-game-ai
-     ```
+Clone this repository:
+```bash
+git clone https://github.com/your-username/snake-game-ai.git
+cd snake-game-ai
+```
 # Usage
 
 ```bash
