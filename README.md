@@ -39,7 +39,6 @@ If you encounter differences in training and testing performance:
 
 - Verify that the environment setup is consistent in both modes.
 - Experiment with hyperparameters such as learning rate, batch size, or exploration decay.
-- Check for overfitting by using validation during training.
 
 # Contributing
 Contributions are welcome! If you'd like to enhance the Snake Game AI, follow these steps:
