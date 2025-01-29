@@ -18,11 +18,13 @@ Ensure you have Python installed on your system. You can install the required li
 Clone this repository
    ```bash
       git clone https://github.com/your-username/snake-game-ai.git
-      cd snake-game-ai```
+      cd snake-game-ai
+      ```
 # Usage
 
 ```bash
-   python agent.py```
+   python agent.py
+```
 
 Input train to start training. This will initialize the training process, saving the best model as model.pth in the models/ folder. For testing, type 'test'.
 
