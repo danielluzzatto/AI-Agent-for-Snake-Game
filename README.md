@@ -30,8 +30,7 @@ Input train to start training. This will initialize the training process, saving
 
 
 # Results
-- Training Performance: The AI typically reaches scores of 60+ during training after around 80 episodes.
-- Testing Performance: Maximum scores during testing reach around 40, likely due to overfitting or differences in training vs. testing environments.
+- The AI typically reaches scores of 60+ after training for about 80 episodes.
 - Visualization: During testing, you can visualize how the AI moves and improves over time.
 
 
