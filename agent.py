@@ -77,17 +77,20 @@ class Agent:
     def train_short_memory(self, state, action, reward, next_state, done):
         self.trainer.train_step(state, action, reward, next_state, done)
 
-    def get_action(self, state):
-        self.epsilon = 80-self.num_games
+    def get_action(self, state, test_mode=False):
+        if not test_mode:
+            self.epsilon = 80 - self.num_games
+            if random.randint(0, 200) < self.epsilon: # if training and under expl prob --> explore
+                move = random.randint(0, 2)
+                final_move = [0, 0, 0]
+                final_move[move] = 1
+                return final_move
+        # otherwise exploit
+        state0 = torch.tensor(state, dtype=torch.float)
+        prediction = self.model(state0)
+        move = torch.argmax(prediction).item()
         final_move = [0, 0, 0]
-        if random.randint(0, self.total_games) < self.epsilon:
-            move = random.randint(0, 2)
-            final_move[move] = 1
-        else:
-            state0 = torch.tensor(state, dtype=torch.float)
-            prediction = self.model(state0)
-            move = torch.argmax(prediction).item()
-            final_move [move] = 1
+        final_move[move] = 1
         return final_move
 
 
@@ -99,7 +102,7 @@ def train():
     record = 0
     agent = Agent()
     game = snake_game_ai()
-    epochs = 100  
+
  
     while True:
         state_old = agent.get_state(game)
@@ -126,8 +129,6 @@ def train():
 
             if agent.num_games == agent.total_games:
                 break
-
-
     plot(plot_scores, plot_mean_scores)
 
 def test():
@@ -137,26 +138,27 @@ def test():
     game = snake_game_ai()
     agent.model.load_state_dict(torch.load(".\\model\\model.pth"))
     agent.model.eval()
- 
-    state = agent.get_state(game)
+
     game_over = False
     score = 0
     trials = 10
 
-    for _ in range(trials):    
-        while True:
-            final_move = agent.get_action(state)
-            _ , game_over, score = game.play_step(final_move)
+    for _ in range(trials):  
+        game.reset()  
+        score = 0
+        game_over = False
+
+        while not game_over:
             state = agent.get_state(game)
+            final_move = agent.get_action(state, test_mode= True)
+            _ , game_over, score = game.play_step(final_move)
                 
             if score > record:
                 record = score
-            
             total_score += score
-            if game_over:
-                game.reset()
-                print(f"Game Over! Score: {score}, Record: {record}")
-                break
+        
+        print(f"Game Over! Score: {score}, Record: {record}")
+        
             
 
 if __name__ == "__main__":
