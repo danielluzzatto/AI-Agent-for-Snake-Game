@@ -103,8 +103,9 @@ def train():
     agent = Agent()
     game = snake_game_ai()
 
- 
-    while True:
+    episodes = 200
+    while agent.num_games < episodes:
+
         state_old = agent.get_state(game)
         final_move = agent.get_action(state_old)
         reward, done, score = game.play_step(final_move)
@@ -142,6 +143,7 @@ def test():
     game_over = False
     score = 0
     trials = 10
+    
 
     for _ in range(trials):  
         game.reset()  
@@ -152,7 +154,6 @@ def test():
             state = agent.get_state(game)
             final_move = agent.get_action(state, test_mode= True)
             _ , game_over, score = game.play_step(final_move)
-                
             if score > record:
                 record = score
             total_score += score

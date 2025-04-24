@@ -1,7 +1,9 @@
 # AI Agent for Snake Game
+[![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=flat&logo=PyTorch&logoColor=white)](https://pytorch.org/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 Deep Q Learning Algorithm to beat the Snake Game
 
-![Snake Game AI Screenshot](assets/Screenshot.png)
+![Snake Game AI Screenshot](assets/Screenshot2.png)
 
 This project implements a Snake Game with an AI agent that can be trained and tested to play the game effectively. The AI uses reinforcement learning to learn how to maximize its score by navigating the environment and collecting food without colliding with itself or the walls.
 # Features:
@@ -19,7 +21,7 @@ Ensure you have Python installed on your system. You can install the required li
 # Installation
 Clone this repository:
 ```bash
-git clone https://github.com/your-username/snake-game-ai.git
+git clone https://github.com/danielluzzatto/AI-Agent-for-Snake-Game
 cd snake-game-ai
 ```
 # Usage
@@ -34,6 +36,8 @@ Input train to start training. This will initialize the training process, saving
 # Results
 - The AI typically reaches scores of 60+ after training for about 80 episodes.
 - Visualization: During testing, you can visualize how the AI moves and improves over time.
+
+![Snake Game AI Screenshot](assets/plot.png)
 
 
 # Troubleshooting
